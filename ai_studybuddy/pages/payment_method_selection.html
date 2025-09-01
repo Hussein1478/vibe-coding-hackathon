@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upgrade to Pro - AI StudyBuddy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faistudybu6821back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Header -->
+    <header class="bg-surface shadow-sm border-b border-secondary-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold text-text-primary">AI StudyBuddy</span>
+                </div>
+                
+                <!-- Navigation -->
+                <nav class="hidden md:flex items-center space-x-6">
+                    <a href="main_dashboard.html" class="text-text-secondary hover:text-primary transition-colors duration-150">Dashboard</a>
+                    <a href="chat_history.html" class="text-text-secondary hover:text-primary transition-colors duration-150">History</a>
+                    <a href="flashcard_viewer.html" class="text-text-secondary hover:text-primary transition-colors duration-150">Flashcards</a>
+                </nav>
+
+                <!-- User Menu -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:flex items-center space-x-2">
+                        <div class="w-8 h-8 bg-secondary-200 rounded-full flex items-center justify-center">
+                            <svg class="w-4 h-4 text-secondary-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-sm text-text-secondary">Free Plan</span>
+                    </div>
+                    <button class="md:hidden p-2 text-secondary-600 hover:text-primary">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="bg-secondary-50 border-b border-secondary-200">
+        <div class="container mx-auto px-4 py-3">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="main_dashboard.html" class="text-secondary-500 hover:text-primary transition-colors duration-150">Dashboard</a>
+                <svg class="w-4 h-4 text-secondary-400" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-text-primary font-medium">Upgrade to Pro</span>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-8 px-4">
+        <div class="container mx-auto max-w-2xl">
+            <!-- Pro Benefits Header -->
+            <div class="text-center mb-8">
+                <div class="inline-flex items-center justify-center w-16 h-16 bg-primary-50 rounded-full mb-4">
+                    <svg class="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.414 14.586 7H12z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h1 class="text-3xl font-semibold text-text-primary mb-2">Upgrade to Pro</h1>
+                <p class="text-text-secondary mb-6">Unlock unlimited flashcard generation and premium features</p>
+                
+                <!-- Pricing -->
+                <div class="inline-flex items-center justify-center bg-primary-50 rounded-lg px-6 py-3 mb-6">
+                    <span class="text-2xl font-semibold text-primary">$9.99</span>
+                    <span class="text-text-secondary ml-2">/month</span>
+                </div>
+            </div>
+
+            <!-- Pro Benefits -->
+            <div class="card mb-8">
+                <h2 class="text-xl font-semibold text-text-primary mb-4">What you'll get with Pro:</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-5 h-5 bg-success rounded-full flex items-center justify-center mt-0.5">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-text-primary">Unlimited Flashcards</h3>
+                            <p class="text-sm text-text-secondary">Generate as many flashcard sets as you need</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-5 h-5 bg-success rounded-full flex items-center justify-center mt-0.5">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-text-primary">Advanced AI Features</h3>
+                            <p class="text-sm text-text-secondary">Enhanced question generation and difficulty levels</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-5 h-5 bg-success rounded-full flex items-center justify-center mt-0.5">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-text-primary">Export & Share</h3>
+                            <p class="text-sm text-text-secondary">Download flashcards and share with classmates</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <div class="flex-shrink-0 w-5 h-5 bg-success rounded-full flex items-center justify-center mt-0.5">
+                            <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-text-primary">Priority Support</h3>
+                            <p class="text-sm text-text-secondary">Get help faster with dedicated support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Payment Method Selection Form -->
+            <div class="card">
+                <h2 class="text-xl font-semibold text-text-primary mb-6">Choose Your Payment Method</h2>
+                
+                <form id="paymentForm" class="space-y-4">
+                    <!-- M-Pesa -->
+                    <label class="payment-option block cursor-pointer">
+                        <input type="radio" name="paymentMethod" value="mpesa" class="sr-only payment-radio" />
+                        <div class="payment-card flex items-center p-4 border-2 border-secondary-200 rounded-lg hover:border-primary-300 transition-all duration-150">
+                            <div class="flex-shrink-0 w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="M-Pesa" class="w-8 h-8 object-cover rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">M-Pesa</h3>
+                                <p class="text-sm text-text-secondary">Instant processing • Secure mobile payments</p>
+                            </div>
+                            <div class="payment-check w-6 h-6 border-2 border-secondary-300 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Airtel Money -->
+                    <label class="payment-option block cursor-pointer">
+                        <input type="radio" name="paymentMethod" value="airtel" class="sr-only payment-radio" />
+                        <div class="payment-card flex items-center p-4 border-2 border-secondary-200 rounded-lg hover:border-primary-300 transition-all duration-150">
+                            <div class="flex-shrink-0 w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mr-4">
+                                <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Airtel Money" class="w-8 h-8 object-cover rounded" onerror="this.src='https://images.unsplash.com/photo-1584824486509-112e4181ff6b?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'; this.onerror=null;" />
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Airtel Money</h3>
+                                <p class="text-sm text-text-secondary">Fast processing • Mobile wallet payments</p>
+                            </div>
+                            <div class="payment-check w-6 h-6 border-2 border-secondary-300 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Credit Card -->
+                    <label class="payment-option block cursor-pointer">
+                        <input type="radio" name="paymentMethod" value="credit" class="sr-only payment-radio" />
+                        <div class="payment-card flex items-center p-4 border-2 border-secondary-200 rounded-lg hover:border-primary-300 transition-all duration-150">
+                            <div class="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Credit Card</h3>
+                                <p class="text-sm text-text-secondary">2-3 business days • Visa, Mastercard, Amex</p>
+                            </div>
+                            <div class="payment-check w-6 h-6 border-2 border-secondary-300 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Debit Card -->
+                    <label class="payment-option block cursor-pointer">
+                        <input type="radio" name="paymentMethod" value="debit" class="sr-only payment-radio" />
+                        <div class="payment-card flex items-center p-4 border-2 border-secondary-200 rounded-lg hover:border-primary-300 transition-all duration-150">
+                            <div class="flex-shrink-0 w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-purple-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Debit Card</h3>
+                                <p class="text-sm text-text-secondary">Instant processing • Direct bank account</p>
+                            </div>
+                            <div class="payment-check w-6 h-6 border-2 border-secondary-300 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Bank Transfer -->
+                    <label class="payment-option block cursor-pointer">
+                        <input type="radio" name="paymentMethod" value="bank" class="sr-only payment-radio" />
+                        <div class="payment-card flex items-center p-4 border-2 border-secondary-200 rounded-lg hover:border-primary-300 transition-all duration-150">
+                            <div class="flex-shrink-0 w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-8 h-8 text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M11.5,1L2,6V8H21V6M16,10V17H19V10M2,10V17H5V10M11,10V17H14V10M6,10V17H9V10M2,19V21H21V19"/>
+                                </svg>
+                            </div>
+                            <div class="flex-1">
+                                <h3 class="font-medium text-text-primary">Bank Transfer</h3>
+                                <p class="text-sm text-text-secondary">3-5 business days • Direct bank transfer</p>
+                            </div>
+                            <div class="payment-check w-6 h-6 border-2 border-secondary-300 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </label>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="status-error p-4 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Please select a payment method to continue</span>
+                        </div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4 pt-6">
+                        <button type="button" onclick="window.location.href='main_dashboard.html'" class="btn-secondary flex-1 order-2 sm:order-1">
+                            Cancel
+                        </button>
+                        <button type="submit" id="continueBtn" class="btn-primary flex-1 order-1 sm:order-2 disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                            <span id="continueText">Continue to Payment</span>
+                            <svg id="loadingSpinner" class="w-5 h-5 ml-2 animate-spin hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Trust Signals -->
+            <div class="mt-8">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-success-50 rounded-full flex items-center justify-center mb-3">
+                            <svg class="w-6 h-6 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary mb-1">SSL Encrypted</h3>
+                        <p class="text-sm text-text-secondary">Your payment information is secure</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-primary-50 rounded-full flex items-center justify-center mb-3">
+                            <svg class="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary mb-1">Money Back Guarantee</h3>
+                        <p class="text-sm text-text-secondary">30-day refund policy</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-12 h-12 bg-accent-50 rounded-full flex items-center justify-center mb-3">
+                            <svg class="w-6 h-6 text-accent" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-medium text-text-primary mb-1">24/7 Support</h3>
+                        <p class="text-sm text-text-secondary">Get help anytime you need it</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Modal -->
+            <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 hidden z-50">
+                <div class="bg-surface rounded-lg p-6 max-w-md w-full">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-success-50 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-text-primary mb-2">Payment Method Selected</h3>
+                        <p class="text-text-secondary mb-6">You'll be redirected to complete your payment securely.</p>
+                        <button onclick="closeModal()" class="btn-primary w-full">
+                            Continue
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-secondary-200 mt-16">
+        <div class="container mx-auto px-4 py-8">
+            <div class="text-center text-sm text-text-secondary">
+                <p>&copy; 2025 AI StudyBuddy. All Rights Reserved.</p>
+                <div class="flex items-center justify-center space-x-4 mt-4">
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Terms of Service</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Privacy Policy</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Payment method selection logic
+        const paymentRadios = document.querySelectorAll('.payment-radio');
+        const paymentCards = document.querySelectorAll('.payment-card');
+        const paymentChecks = document.querySelectorAll('.payment-check');
+        const continueBtn = document.getElementById('continueBtn');
+        const errorMessage = document.getElementById('errorMessage');
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Handle payment method selection
+        paymentRadios.forEach((radio, index) => {
+            radio.addEventListener('change', function() {
+                // Reset all cards
+                paymentCards.forEach(card => {
+                    card.classList.remove('border-primary', 'bg-primary-50');
+                    card.classList.add('border-secondary-200');
+                });
+                
+                paymentChecks.forEach(check => {
+                    check.classList.remove('bg-primary', 'border-primary');
+                    check.classList.add('border-secondary-300');
+                    check.querySelector('svg').classList.add('hidden');
+                });
+
+                // Highlight selected card
+                if (this.checked) {
+                    const selectedCard = paymentCards[index];
+                    const selectedCheck = paymentChecks[index];
+                    
+                    selectedCard.classList.remove('border-secondary-200');
+                    selectedCard.classList.add('border-primary', 'bg-primary-50');
+                    
+                    selectedCheck.classList.remove('border-secondary-300');
+                    selectedCheck.classList.add('bg-primary', 'border-primary');
+                    selectedCheck.querySelector('svg').classList.remove('hidden');
+                    
+                    // Enable continue button
+                    continueBtn.disabled = false;
+                    continueBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                    
+                    // Hide error message
+                    errorMessage.classList.add('hidden');
+                }
+            });
+        });
+
+        // Handle form submission
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const selectedPayment = document.querySelector('input[name="paymentMethod"]:checked');
+            
+            if (!selectedPayment) {
+                errorMessage.classList.remove('hidden');
+                return;
+            }
+
+            // Show loading state
+            const continueText = document.getElementById('continueText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            continueBtn.disabled = true;
+            continueText.textContent = 'Processing...';
+            loadingSpinner.classList.remove('hidden');
+
+            // Simulate processing
+            setTimeout(() => {
+                showSuccessModal();
+                
+                // Reset button state
+                continueBtn.disabled = false;
+                continueText.textContent = 'Continue to Payment';
+                loadingSpinner.classList.add('hidden');
+            }, 2000);
+        });
+
+        // Show success modal
+        function showSuccessModal() {
+            document.getElementById('successModal').classList.remove('hidden');
+        }
+
+        // Close modal and redirect
+        function closeModal() {
+            document.getElementById('successModal').classList.add('hidden');
+            // Simulate redirect to payment processor
+            setTimeout(() => {
+                window.location.href = 'main_dashboard.html';
+            }, 500);
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('successModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Mobile menu toggle (if needed)
+        const mobileMenuBtn = document.querySelector('.md\\:hidden button');
+        if (mobileMenuBtn) {
+            mobileMenuBtn.addEventListener('click', function() {
+                // Add mobile menu functionality if needed
+                console.log('Mobile menu clicked');
+            });
+        }
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

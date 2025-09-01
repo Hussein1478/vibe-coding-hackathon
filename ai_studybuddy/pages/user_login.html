@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign In - AI StudyBuddy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faistudybu6821back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Header -->
+    <header class="bg-surface shadow-sm border-b border-secondary-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold text-text-primary">AI StudyBuddy</span>
+                </div>
+                
+                <!-- Registration Link -->
+                <a href="user_registration.html" class="text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                    Sign Up
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8 px-4">
+        <div class="container mx-auto max-w-md">
+            <!-- Login Form Card -->
+            <div class="card">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-semibold text-text-primary mb-2">Welcome Back</h1>
+                    <p class="text-text-secondary">Sign in to continue your learning journey</p>
+                </div>
+
+                <!-- Error Message -->
+                <div id="errorMessage" class="status-error p-4 rounded-lg mb-6 hidden">
+                    <div class="flex items-center">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                        </svg>
+                        <div>
+                            <p class="font-medium">Invalid credentials</p>
+                            <p class="text-sm mt-1" id="errorText">Please check your email and password and try again.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Login Form -->
+                <form id="loginForm" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                            Email Address
+                        </label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" class="input-field pr-10" placeholder="Enter your email address" required autocomplete="email" />
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg class="w-5 h-5 text-secondary-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="input-field pr-10" placeholder="Enter your password" required autocomplete="current-password" />
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-secondary-400 hover:text-secondary-600">
+                                <svg id="eyeOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg id="eyeClosed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Remember Me & Forgot Password -->
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center">
+                            <input type="checkbox" id="rememberMe" name="rememberMe" class="w-4 h-4 text-primary border-secondary-300 rounded focus:ring-primary-500" />
+                            <label for="rememberMe" class="ml-2 text-sm text-text-secondary">
+                                Remember me
+                            </label>
+                        </div>
+                        <a href="javascript:void(0)" class="text-sm text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                            Forgot password?
+                        </a>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary w-full">
+                        <span id="submitText">Sign In</span>
+                        <svg id="loadingSpinner" class="w-5 h-5 ml-2 animate-spin hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="status-success p-4 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Login successful! Redirecting to dashboard...</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Registration Link -->
+                <div class="text-center mt-6 pt-6 border-t border-secondary-200">
+                    <p class="text-text-secondary">
+                        Don't have an account? 
+                        <a href="user_registration.html" class="text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                            Create one here
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Trust Signals -->
+            <div class="text-center mt-8 space-y-4">
+                <!-- SSL Badge -->
+                <div class="inline-flex items-center space-x-2 text-sm text-text-secondary">
+                    <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Secured with SSL encryption</span>
+                </div>
+
+                <!-- Demo Credentials -->
+                <div class="bg-secondary-50 rounded-lg p-4 text-left">
+                    <h3 class="text-sm font-medium text-text-primary mb-2">Demo Credentials</h3>
+                    <div class="space-y-2 text-sm text-text-secondary">
+                        <div class="flex justify-between">
+                            <span>Student:</span>
+                            <span class="font-mono">student@demo.com / student123</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Pro User:</span>
+                            <span class="font-mono">pro@demo.com / pro123</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Admin:</span>
+                            <span class="font-mono">admin@demo.com / admin123</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Form Functionality -->
+    <script>
+        // Form elements
+        const form = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const submitBtn = document.getElementById('submitBtn');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+        const errorMessage = document.getElementById('errorMessage');
+        const successMessage = document.getElementById('successMessage');
+
+        // Demo user credentials
+        const demoUsers = {
+            'student@demo.com': { password: 'student123', type: 'student', name: 'Alex Johnson' },
+            'pro@demo.com': { password: 'pro123', type: 'pro', name: 'Sarah Chen' },
+            'admin@demo.com': { password: 'admin123', type: 'admin', name: 'Admin User' }
+        };
+
+        // Password visibility toggle
+        togglePasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            document.getElementById('eyeOpen').classList.toggle('hidden');
+            document.getElementById('eyeClosed').classList.toggle('hidden');
+        });
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Hide previous messages
+            errorMessage.classList.add('hidden');
+            successMessage.classList.add('hidden');
+            
+            // Show loading state
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            
+            submitBtn.disabled = true;
+            submitText.textContent = 'Signing In...';
+            loadingSpinner.classList.remove('hidden');
+            
+            // Simulate API call
+            setTimeout(() => {
+                // Check credentials
+                const user = demoUsers[email];
+                
+                if (user && user.password === password) {
+                    // Successful login
+                    successMessage.classList.remove('hidden');
+                    
+                    // Store user session (mock)
+                    const sessionData = {
+                        email: email,
+                        name: user.name,
+                        type: user.type,
+                        loginTime: new Date().toISOString(),
+                        rememberMe: rememberMe
+                    };
+                    
+                    // Store in localStorage for demo purposes
+                    localStorage.setItem('userSession', JSON.stringify(sessionData));
+                    
+                    // Redirect to dashboard
+                    setTimeout(() => {
+                        window.location.href = 'main_dashboard.html';
+                    }, 1500);
+                    
+                } else {
+                    // Failed login
+                    errorMessage.classList.remove('hidden');
+                    
+                    if (!user) {
+                        document.getElementById('errorText').textContent = 'No account found with this email address. Please check your email or create a new account.';
+                    } else {
+                        document.getElementById('errorText').textContent = 'Incorrect password. Please try again or use the forgot password link.';
+                    }
+                    
+                    // Reset form state
+                    submitBtn.disabled = false;
+                    submitText.textContent = 'Sign In';
+                    loadingSpinner.classList.add('hidden');
+                    
+                    // Focus on password field for retry
+                    passwordInput.focus();
+                    passwordInput.select();
+                }
+            }, 1500);
+        });
+
+        // Input validation feedback
+        emailInput.addEventListener('input', function() {
+            const email = this.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            
+            if (email && !emailRegex.test(email)) {
+                this.classList.add('border-error');
+            } else {
+                this.classList.remove('border-error');
+            }
+        });
+
+        // Auto-fill demo credentials on click
+        document.addEventListener('click', function(e) {
+            if (e.target.closest('.bg-secondary-50')) {
+                const credentialRow = e.target.closest('.flex');
+                if (credentialRow) {
+                    const credentialText = credentialRow.querySelector('.font-mono').textContent;
+                    const [email, password] = credentialText.split(' / ');
+                    
+                    if (email && password) {
+                        emailInput.value = email;
+                        passwordInput.value = password;
+                        emailInput.classList.remove('border-error');
+                    }
+                }
+            }
+        });
+
+        // Check for existing session on page load
+        window.addEventListener('load', function() {
+            const existingSession = localStorage.getItem('userSession');
+            if (existingSession) {
+                const sessionData = JSON.parse(existingSession);
+                // If remember me was checked and session is recent, redirect
+                if (sessionData.rememberMe) {
+                    const loginTime = new Date(sessionData.loginTime);
+                    const now = new Date();
+                    const hoursDiff = (now - loginTime) / (1000 * 60 * 60);
+                    
+                    if (hoursDiff < 24) { // Session valid for 24 hours
+                        window.location.href = 'main_dashboard.html';
+                    }
+                }
+            }
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

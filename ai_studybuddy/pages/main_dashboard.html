@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - AI StudyBuddy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faistudybu6821back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Header -->
+    <header class="bg-surface shadow-sm border-b border-secondary-200 sticky top-0 z-40">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold text-text-primary">AI StudyBuddy</span>
+                </div>
+                
+                <!-- Navigation & User Menu -->
+                <div class="flex items-center space-x-4">
+                    <!-- Desktop Navigation -->
+                    <nav class="hidden md:flex items-center space-x-6">
+                        <a href="main_dashboard.html" class="text-primary font-medium">Dashboard</a>
+                        <a href="chat_history.html" class="text-text-secondary hover:text-primary transition-colors duration-150">History</a>
+                        <a href="payment_method_selection.html" class="text-text-secondary hover:text-primary transition-colors duration-150">Upgrade</a>
+                    </nav>
+                    
+                    <!-- User Menu -->
+                    <div class="relative">
+                        <button id="userMenuBtn" class="flex items-center space-x-2 text-text-secondary hover:text-primary transition-colors duration-150">
+                            <div class="w-8 h-8 bg-primary-100 rounded-full flex items-center justify-center">
+                                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="hidden sm:block font-medium">John Doe</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <!-- Dropdown Menu -->
+                        <div id="userDropdown" class="absolute right-0 mt-2 w-48 bg-surface rounded-lg shadow-lg border border-secondary-200 hidden">
+                            <div class="py-2">
+                                <div class="px-4 py-2 border-b border-secondary-200">
+                                    <p class="text-sm font-medium text-text-primary">john.doe@studybuddy.com</p>
+                                    <p class="text-xs text-text-secondary">Free Plan</p>
+                                </div>
+                                <a href="chat_history.html" class="block px-4 py-2 text-sm text-text-secondary hover:bg-secondary-50 hover:text-primary transition-colors duration-150">
+                                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                    </svg>
+                                    Chat History
+                                </a>
+                                <a href="payment_method_selection.html" class="block px-4 py-2 text-sm text-text-secondary hover:bg-secondary-50 hover:text-primary transition-colors duration-150">
+                                    <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                    </svg>
+                                    Upgrade to Pro
+                                </a>
+                                <div class="border-t border-secondary-200 mt-2 pt-2">
+                                    <a href="user_login.html" class="block px-4 py-2 text-sm text-error hover:bg-error-50 transition-colors duration-150">
+                                        <svg class="w-4 h-4 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                                        </svg>
+                                        Sign Out
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button id="mobileMenuBtn" class="md:hidden p-2 text-text-secondary hover:text-primary transition-colors duration-150">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Navigation -->
+            <div id="mobileMenu" class="md:hidden mt-4 pb-4 border-t border-secondary-200 hidden">
+                <nav class="flex flex-col space-y-2 pt-4">
+                    <a href="main_dashboard.html" class="px-2 py-2 text-primary font-medium bg-primary-50 rounded-lg">Dashboard</a>
+                    <a href="chat_history.html" class="px-2 py-2 text-text-secondary hover:text-primary hover:bg-secondary-50 rounded-lg transition-colors duration-150">History</a>
+                    <a href="payment_method_selection.html" class="px-2 py-2 text-text-secondary hover:text-primary hover:bg-secondary-50 rounded-lg transition-colors duration-150">Upgrade</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-6 px-4">
+        <div class="container mx-auto max-w-7xl">
+            <!-- Welcome Banner -->
+            <section class="mb-8">
+                <div class="card bg-gradient-to-r from-primary-50 to-accent-50 border border-primary-100">
+                    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                        <div class="mb-4 sm:mb-0">
+                            <h1 class="text-2xl sm:text-3xl font-semibold text-text-primary mb-2">
+                                Welcome back, John! 👋
+                            </h1>
+                            <p class="text-text-secondary">
+                                Transform your study notes into interactive flashcards with AI
+                            </p>
+                        </div>
+                        <div class="flex flex-col sm:items-end">
+                            <div class="bg-surface rounded-lg px-4 py-3 shadow-sm border border-secondary-200">
+                                <div class="text-center">
+                                    <div class="text-2xl font-semibold text-primary mb-1">7</div>
+                                    <div class="text-xs text-text-secondary">Generations Left Today</div>
+                                </div>
+                            </div>
+                            <p class="text-xs text-text-secondary mt-2 text-center sm:text-right">
+                                Resets daily at midnight
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Main Content Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Study Notes Input Section -->
+                <div class="lg:col-span-2">
+                    <div class="card">
+                        <div class="mb-6">
+                            <h2 class="text-xl font-semibold text-text-primary mb-2">Create Flashcards</h2>
+                            <p class="text-text-secondary">
+                                Paste your study notes below and let AI generate interactive flashcards for you
+                            </p>
+                        </div>
+
+                        <form id="flashcardForm" class="space-y-6">
+                            <!-- Study Notes Textarea -->
+                            <div>
+                                <label for="studyNotes" class="block text-sm font-medium text-text-primary mb-3">
+                                    Study Notes
+                                </label>
+                                <div class="relative">
+                                    <textarea id="studyNotes" name="studyNotes" rows="12" class="input-field resize-none" placeholder="Paste your study notes here... 
+
+For example:
+• Photosynthesis is the process by which plants convert light energy into chemical energy
+• The mitochondria is known as the powerhouse of the cell
+• DNA stands for Deoxyribonucleic Acid and contains genetic information
+
+The more detailed your notes, the better the flashcards will be!" required></textarea>
+                                    <div class="absolute bottom-3 right-3 text-xs text-text-secondary">
+                                        <span id="charCount">0</span> / 5000 characters
+                                    </div>
+                                </div>
+                                <div class="flex items-center justify-between mt-2">
+                                    <p class="text-sm text-text-secondary">
+                                        Minimum 50 characters required
+                                    </p>
+                                    <div class="flex items-center space-x-2">
+                                        <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                        <span class="text-xs text-success">SSL Secured</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Generate Button -->
+                            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                                <div class="flex items-center space-x-2 text-sm text-text-secondary">
+                                    <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span>AI-powered generation</span>
+                                </div>
+                                <button type="submit" id="generateBtn" class="btn-primary disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center" disabled>
+                                    <span id="generateText">Generate Flashcards</span>
+                                    <svg id="generateSpinner" class="w-5 h-5 ml-2 animate-spin hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <!-- Success Message -->
+                            <div id="successMessage" class="status-success p-4 rounded-lg hidden">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <h4 class="font-medium mb-1">Flashcards Generated Successfully!</h4>
+                                        <p class="text-sm mb-3">Created 8 flashcards from your study notes.</p>
+                                        <a href="flashcard_viewer.html" class="inline-flex items-center text-sm font-medium text-success hover:text-success-600 transition-colors duration-150">
+                                            View Flashcards
+                                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Error Message -->
+                            <div id="errorMessage" class="status-error p-4 rounded-lg hidden">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span id="errorText">Failed to generate flashcards. Please try again.</span>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- Upgrade Prompt for Free Users -->
+                        <div id="upgradePrompt" class="mt-6 p-4 bg-gradient-to-r from-warning-50 to-primary-50 border border-warning-200 rounded-lg hidden">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-warning mr-3 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <h4 class="font-medium text-warning-700 mb-1">Daily Limit Reached</h4>
+                                    <p class="text-sm text-warning-600 mb-3">You've used all your free generations for today. Upgrade to Pro for unlimited access!</p>
+                                    <a href="payment_method_selection.html" class="inline-flex items-center text-sm font-medium text-primary hover:text-primary-700 transition-colors duration-150">
+                                        Upgrade Now
+                                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Chat History Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="card">
+                        <div class="flex items-center justify-between mb-6">
+                            <h2 class="text-lg font-semibold text-text-primary">Recent Sessions</h2>
+                            <a href="chat_history.html" class="text-sm text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                                View All
+                            </a>
+                        </div>
+
+                        <!-- Chat History List -->
+                        <div class="space-y-4">
+                            <!-- Session 1 -->
+                            <div class="group cursor-pointer" onclick="window.location.href='flashcard_viewer.html'">
+                                <div class="p-4 border border-secondary-200 rounded-lg hover:border-primary-200 hover:bg-primary-50 transition-all duration-150">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <h3 class="font-medium text-text-primary group-hover:text-primary transition-colors duration-150 line-clamp-2">
+                                            Biology Chapter 5: Photosynthesis
+                                        </h3>
+                                        <svg class="w-4 h-4 text-secondary-400 group-hover:text-primary transition-colors duration-150 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary">
+                                        <span>12 flashcards</span>
+                                        <span>2 hours ago</span>
+                                    </div>
+                                    <div class="mt-2 flex items-center">
+                                        <div class="flex -space-x-1">
+                                            <div class="w-6 h-6 bg-success-100 rounded-full flex items-center justify-center border-2 border-surface">
+                                                <svg class="w-3 h-3 text-success" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </div>
+                                            <div class="w-6 h-6 bg-primary-100 rounded-full flex items-center justify-center border-2 border-surface">
+                                                <svg class="w-3 h-3 text-primary" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span class="ml-2 text-xs text-success">Completed</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Session 2 -->
+                            <div class="group cursor-pointer" onclick="window.location.href='flashcard_viewer.html'">
+                                <div class="p-4 border border-secondary-200 rounded-lg hover:border-primary-200 hover:bg-primary-50 transition-all duration-150">
+                                    <div class="flex items-start justify-between mb-2">
+                                        <h3 class="font-medium text-text-primary group-hover:text-primary transition-colors duration-150 line-clamp-2">
+                                            History: World War II Timeline
+                                        </h3>
+                                        <svg class="w-4 h-4 text-secondary-400 group-hover:text-primary transition-colors duration-150 flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                        </svg>
+                                    </div>
+                                    <div class="flex items-center justify-between text-sm text-text-secondary">
+                                        <span>8 flashcards</span>
+                                        <span>1 day ago</span>
+                                    </div>
+                                    <div class="mt-2 flex items-center">
+                                        <div class="flex -space-x-1">
+                                            <div class="w-6 h-6 bg-warning-100 rounded-full flex items-center justify-center border-2 border-surface">
+                                                <svg class="w-3 h-3 text-warning" fill="currentColor" viewBox="0 0 20 20">
+                                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <span class="ml-2 text-xs text-warning">In Progress</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Empty State -->
+                            <div class="text-center py-8 text-text-secondary">
+                                <svg class="w-12 h-12 mx-auto mb-4 text-secondary-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
+                                </svg>
+                                <p class="text-sm">Create your first flashcard set to get started!</p>
+                            </div>
+                        </div>
+
+                        <!-- Quick Stats -->
+                        <div class="mt-6 pt-6 border-t border-secondary-200">
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center">
+                                    <div class="text-lg font-semibold text-primary">24</div>
+                                    <div class="text-xs text-text-secondary">Total Cards</div>
+                                </div>
+                                <div class="text-center">
+                                    <div class="text-lg font-semibold text-accent">3</div>
+                                    <div class="text-xs text-text-secondary">Sessions</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface border-t border-secondary-200 mt-12">
+        <div class="container mx-auto px-4 py-6">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+                <div class="flex items-center space-x-2 mb-4 sm:mb-0">
+                    <div class="w-6 h-6 bg-primary rounded-md flex items-center justify-center">
+                        <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="text-sm text-text-secondary">© 2025 AI StudyBuddy. All Rights Reserved.</span>
+                </div>
+                <div class="flex items-center space-x-4 text-sm text-text-secondary">
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Privacy</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Terms</a>
+                    <a href="javascript:void(0)" class="hover:text-primary transition-colors duration-150">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // User menu dropdown
+        const userMenuBtn = document.getElementById('userMenuBtn');
+        const userDropdown = document.getElementById('userDropdown');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        userMenuBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+
+        mobileMenuBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close dropdowns when clicking outside
+        document.addEventListener('click', function() {
+            userDropdown.classList.add('hidden');
+        });
+
+        // Form handling
+        const studyNotesTextarea = document.getElementById('studyNotes');
+        const charCount = document.getElementById('charCount');
+        const generateBtn = document.getElementById('generateBtn');
+        const flashcardForm = document.getElementById('flashcardForm');
+
+        // Character count and validation
+        studyNotesTextarea.addEventListener('input', function() {
+            const text = this.value;
+            const length = text.length;
+            
+            charCount.textContent = length;
+            
+            // Enable/disable button based on minimum length
+            if (length >= 50 && length <= 5000) {
+                generateBtn.disabled = false;
+                generateBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                generateBtn.disabled = true;
+                generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+            
+            // Update character count color
+            if (length > 4500) {
+                charCount.classList.add('text-warning');
+                charCount.classList.remove('text-text-secondary');
+            } else if (length > 5000) {
+                charCount.classList.add('text-error');
+                charCount.classList.remove('text-warning', 'text-text-secondary');
+            } else {
+                charCount.classList.remove('text-warning', 'text-error');
+                charCount.classList.add('text-text-secondary');
+            }
+        });
+
+        // Form submission
+        flashcardForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const generateText = document.getElementById('generateText');
+            const generateSpinner = document.getElementById('generateSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            const upgradePrompt = document.getElementById('upgradePrompt');
+            
+            // Hide previous messages
+            successMessage.classList.add('hidden');
+            errorMessage.classList.add('hidden');
+            upgradePrompt.classList.add('hidden');
+            
+            // Show loading state
+            generateBtn.disabled = true;
+            generateText.textContent = 'Generating...';
+            generateSpinner.classList.remove('hidden');
+            
+            // Simulate API call
+            setTimeout(() => {
+                const remainingGenerations = 7; // Mock data
+                
+                if (remainingGenerations <= 0) {
+                    // Show upgrade prompt
+                    upgradePrompt.classList.remove('hidden');
+                    
+                    // Reset button
+                    generateBtn.disabled = false;
+                    generateText.textContent = 'Generate Flashcards';
+                    generateSpinner.classList.add('hidden');
+                } else {
+                    // Simulate random success/error
+                    const isSuccess = Math.random() > 0.2; // 80% success rate
+                    
+                    if (isSuccess) {
+                        // Show success message
+                        successMessage.classList.remove('hidden');
+                        
+                        // Update remaining generations (mock)
+                        const generationsLeft = document.querySelector('.text-2xl.font-semibold.text-primary');
+                        if (generationsLeft) {
+                            generationsLeft.textContent = (remainingGenerations - 1).toString();
+                        }
+                        
+                        // Clear form
+                        studyNotesTextarea.value = '';
+                        charCount.textContent = '0';
+                        generateBtn.disabled = true;
+                        generateBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                    } else {
+                        // Show error message
+                        errorMessage.classList.remove('hidden');
+                    }
+                    
+                    // Reset button
+                    generateBtn.disabled = studyNotesTextarea.value.length < 50;
+                    generateText.textContent = 'Generate Flashcards';
+                    generateSpinner.classList.add('hidden');
+                }
+            }, 3000);
+        });
+
+        // Auto-hide success/error messages after 5 seconds
+        function autoHideMessage(element) {
+            setTimeout(() => {
+                element.classList.add('hidden');
+            }, 5000);
+        }
+
+        // Observe for message visibility changes
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    const target = mutation.target;
+                    if ((target.id === 'successMessage' || target.id === 'errorMessage') && 
+                        !target.classList.contains('hidden')) {
+                        autoHideMessage(target);
+                    }
+                }
+            });
+        });
+
+        observer.observe(document.getElementById('successMessage'), { attributes: true });
+        observer.observe(document.getElementById('errorMessage'), { attributes: true });
+
+        // Simulate real-time updates (optional)
+        setInterval(() => {
+            const now = new Date();
+            const timeElements = document.querySelectorAll('[data-time]');
+            timeElements.forEach(el => {
+                // Update relative time display
+                const timestamp = el.getAttribute('data-time');
+                if (timestamp) {
+                    const diff = now - new Date(timestamp);
+                    const hours = Math.floor(diff / (1000 * 60 * 60));
+                    const days = Math.floor(hours / 24);
+                    
+                    if (days > 0) {
+                        el.textContent = `${days} day${days > 1 ? 's' : ''} ago`;
+                    } else if (hours > 0) {
+                        el.textContent = `${hours} hour${hours > 1 ? 's' : ''} ago`;
+                    } else {
+                        el.textContent = 'Just now';
+                    }
+                }
+            });
+        }, 60000); // Update every minute
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>

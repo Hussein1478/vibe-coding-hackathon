@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - AI StudyBuddy</title>
+    <link rel="stylesheet" href="../css/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<script type="module" src="https://static.rocket.new/rocket-web.js?_cfg=https%3A%2F%2Faistudybu6821back.builtwithrocket.new&_be=https%3A%2F%2Fapplication.rocket.new&_v=0.1.8"></script>
+</head>
+<body class="bg-background min-h-screen">
+    <!-- Global Header -->
+    <header class="bg-surface shadow-sm border-b border-secondary-200">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <span class="text-xl font-semibold text-text-primary">AI StudyBuddy</span>
+                </div>
+                
+                <!-- Login Link -->
+                <a href="user_login.html" class="text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-1 py-8 px-4">
+        <div class="container mx-auto max-w-md">
+            <!-- Registration Form Card -->
+            <div class="card">
+                <!-- Header -->
+                <div class="text-center mb-8">
+                    <h1 class="text-3xl font-semibold text-text-primary mb-2">Create Your Account</h1>
+                    <p class="text-text-secondary">Join thousands of students transforming their study experience</p>
+                </div>
+
+                <!-- Registration Form -->
+                <form id="registrationForm" class="space-y-6">
+                    <!-- Email Field -->
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-text-primary mb-2">
+                            Email Address
+                        </label>
+                        <div class="relative">
+                            <input type="email" id="email" name="email" class="input-field pr-10" placeholder="Enter your email address" required />
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg id="emailValidIcon" class="w-5 h-5 text-success hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <svg id="emailErrorIcon" class="w-5 h-5 text-error hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p id="emailError" class="text-sm text-error mt-1 hidden">Please enter a valid email address</p>
+                    </div>
+
+                    <!-- Password Field -->
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text-primary mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="password" name="password" class="input-field pr-10" placeholder="Create a strong password" required />
+                            <button type="button" id="togglePassword" class="absolute inset-y-0 right-0 pr-3 flex items-center text-secondary-400 hover:text-secondary-600">
+                                <svg id="eyeOpen" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                                </svg>
+                                <svg id="eyeClosed" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.878 9.878L3 3m6.878 6.878L21 21"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <!-- Password Strength Meter -->
+                        <div class="mt-2">
+                            <div class="flex items-center space-x-2 mb-1">
+                                <div class="flex-1 bg-secondary-200 rounded-full h-2">
+                                    <div id="passwordStrengthBar" class="h-2 rounded-full transition-all duration-300 bg-error" style="width: 0%"></div>
+                                </div>
+                                <span id="passwordStrengthText" class="text-xs text-secondary-500">Weak</span>
+                            </div>
+                            <div class="text-xs text-secondary-500 space-y-1">
+                                <div class="flex items-center space-x-2">
+                                    <span id="lengthCheck" class="w-4 h-4 rounded-full bg-secondary-200 flex items-center justify-center">
+                                        <svg class="w-2 h-2 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>At least 8 characters</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span id="uppercaseCheck" class="w-4 h-4 rounded-full bg-secondary-200 flex items-center justify-center">
+                                        <svg class="w-2 h-2 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>One uppercase letter</span>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <span id="numberCheck" class="w-4 h-4 rounded-full bg-secondary-200 flex items-center justify-center">
+                                        <svg class="w-2 h-2 text-white hidden" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                        </svg>
+                                    </span>
+                                    <span>One number</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Confirm Password Field -->
+                    <div>
+                        <label for="confirmPassword" class="block text-sm font-medium text-text-primary mb-2">
+                            Confirm Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" id="confirmPassword" name="confirmPassword" class="input-field pr-10" placeholder="Confirm your password" required />
+                            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+                                <svg id="confirmValidIcon" class="w-5 h-5 text-success hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <svg id="confirmErrorIcon" class="w-5 h-5 text-error hidden" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <p id="confirmError" class="text-sm text-error mt-1 hidden">Passwords do not match</p>
+                    </div>
+
+                    <!-- Terms Agreement -->
+                    <div class="flex items-start space-x-3">
+                        <input type="checkbox" id="terms" name="terms" class="mt-1 w-4 h-4 text-primary border-secondary-300 rounded focus:ring-primary-500" required />
+                        <label for="terms" class="text-sm text-text-secondary">
+                            I agree to the <a href="javascript:void(0)" class="text-primary hover:text-primary-700 underline">Terms of Service</a> and <a href="javascript:void(0)" class="text-primary hover:text-primary-700 underline">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" id="submitBtn" class="btn-primary w-full disabled:opacity-50 disabled:cursor-not-allowed" disabled>
+                        <span id="submitText">Create Account</span>
+                        <svg id="loadingSpinner" class="w-5 h-5 ml-2 animate-spin hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Success Message -->
+                    <div id="successMessage" class="status-success p-4 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Account created successfully! Redirecting to dashboard...</span>
+                        </div>
+                    </div>
+
+                    <!-- Error Message -->
+                    <div id="errorMessage" class="status-error p-4 rounded-lg hidden">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span id="errorText">An error occurred. Please try again.</span>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Login Link -->
+                <div class="text-center mt-6 pt-6 border-t border-secondary-200">
+                    <p class="text-text-secondary">
+                        Already have an account? 
+                        <a href="user_login.html" class="text-primary hover:text-primary-700 font-medium transition-colors duration-150">
+                            Sign in here
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Security Badge -->
+            <div class="text-center mt-8">
+                <div class="inline-flex items-center space-x-2 text-sm text-text-secondary">
+                    <svg class="w-4 h-4 text-success" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                    </svg>
+                    <span>Secured with SSL encryption</span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- JavaScript for Form Validation -->
+    <script>
+        // Form validation and interaction logic
+        const form = document.getElementById('registrationForm');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const termsCheckbox = document.getElementById('terms');
+        const submitBtn = document.getElementById('submitBtn');
+        const togglePasswordBtn = document.getElementById('togglePassword');
+
+        // Password visibility toggle
+        togglePasswordBtn.addEventListener('click', function() {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            
+            document.getElementById('eyeOpen').classList.toggle('hidden');
+            document.getElementById('eyeClosed').classList.toggle('hidden');
+        });
+
+        // Email validation
+        emailInput.addEventListener('input', function() {
+            const email = this.value;
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const isValid = emailRegex.test(email);
+            
+            const validIcon = document.getElementById('emailValidIcon');
+            const errorIcon = document.getElementById('emailErrorIcon');
+            const errorMsg = document.getElementById('emailError');
+            
+            if (email && isValid) {
+                validIcon.classList.remove('hidden');
+                errorIcon.classList.add('hidden');
+                errorMsg.classList.add('hidden');
+                emailInput.classList.remove('border-error');
+                emailInput.classList.add('border-success');
+            } else if (email) {
+                validIcon.classList.add('hidden');
+                errorIcon.classList.remove('hidden');
+                errorMsg.classList.remove('hidden');
+                emailInput.classList.add('border-error');
+                emailInput.classList.remove('border-success');
+            } else {
+                validIcon.classList.add('hidden');
+                errorIcon.classList.add('hidden');
+                errorMsg.classList.add('hidden');
+                emailInput.classList.remove('border-error', 'border-success');
+            }
+            
+            checkFormValidity();
+        });
+
+        // Password strength validation
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const lengthCheck = document.getElementById('lengthCheck');
+            const uppercaseCheck = document.getElementById('uppercaseCheck');
+            const numberCheck = document.getElementById('numberCheck');
+            const strengthBar = document.getElementById('passwordStrengthBar');
+            const strengthText = document.getElementById('passwordStrengthText');
+            
+            let score = 0;
+            
+            // Length check
+            if (password.length >= 8) {
+                lengthCheck.classList.add('bg-success');
+                lengthCheck.classList.remove('bg-secondary-200');
+                lengthCheck.querySelector('svg').classList.remove('hidden');
+                score++;
+            } else {
+                lengthCheck.classList.remove('bg-success');
+                lengthCheck.classList.add('bg-secondary-200');
+                lengthCheck.querySelector('svg').classList.add('hidden');
+            }
+            
+            // Uppercase check
+            if (/[A-Z]/.test(password)) {
+                uppercaseCheck.classList.add('bg-success');
+                uppercaseCheck.classList.remove('bg-secondary-200');
+                uppercaseCheck.querySelector('svg').classList.remove('hidden');
+                score++;
+            } else {
+                uppercaseCheck.classList.remove('bg-success');
+                uppercaseCheck.classList.add('bg-secondary-200');
+                uppercaseCheck.querySelector('svg').classList.add('hidden');
+            }
+            
+            // Number check
+            if (/\d/.test(password)) {
+                numberCheck.classList.add('bg-success');
+                numberCheck.classList.remove('bg-secondary-200');
+                numberCheck.querySelector('svg').classList.remove('hidden');
+                score++;
+            } else {
+                numberCheck.classList.remove('bg-success');
+                numberCheck.classList.add('bg-secondary-200');
+                numberCheck.querySelector('svg').classList.add('hidden');
+            }
+            
+            // Update strength bar
+            const percentage = (score / 3) * 100;
+            strengthBar.style.width = percentage + '%';
+            
+            if (score === 0) {
+                strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-error';
+                strengthText.textContent = 'Weak';
+                strengthText.className = 'text-xs text-error';
+            } else if (score === 1) {
+                strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-warning';
+                strengthText.textContent = 'Fair';
+                strengthText.className = 'text-xs text-warning';
+            } else if (score === 2) {
+                strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-warning';
+                strengthText.textContent = 'Good';
+                strengthText.className = 'text-xs text-warning';
+            } else {
+                strengthBar.className = 'h-2 rounded-full transition-all duration-300 bg-success';
+                strengthText.textContent = 'Strong';
+                strengthText.className = 'text-xs text-success';
+            }
+            
+            checkFormValidity();
+        });
+
+        // Confirm password validation
+        confirmPasswordInput.addEventListener('input', function() {
+            const password = passwordInput.value;
+            const confirmPassword = this.value;
+            
+            const validIcon = document.getElementById('confirmValidIcon');
+            const errorIcon = document.getElementById('confirmErrorIcon');
+            const errorMsg = document.getElementById('confirmError');
+            
+            if (confirmPassword && password === confirmPassword) {
+                validIcon.classList.remove('hidden');
+                errorIcon.classList.add('hidden');
+                errorMsg.classList.add('hidden');
+                confirmPasswordInput.classList.remove('border-error');
+                confirmPasswordInput.classList.add('border-success');
+            } else if (confirmPassword) {
+                validIcon.classList.add('hidden');
+                errorIcon.classList.remove('hidden');
+                errorMsg.classList.remove('hidden');
+                confirmPasswordInput.classList.add('border-error');
+                confirmPasswordInput.classList.remove('border-success');
+            } else {
+                validIcon.classList.add('hidden');
+                errorIcon.classList.add('hidden');
+                errorMsg.classList.add('hidden');
+                confirmPasswordInput.classList.remove('border-error', 'border-success');
+            }
+            
+            checkFormValidity();
+        });
+
+        // Terms checkbox
+        termsCheckbox.addEventListener('change', checkFormValidity);
+
+        // Check overall form validity
+        function checkFormValidity() {
+            const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailInput.value);
+            const passwordValid = passwordInput.value.length >= 8 && 
+                                /[A-Z]/.test(passwordInput.value) && 
+                                /\d/.test(passwordInput.value);
+            const confirmValid = confirmPasswordInput.value === passwordInput.value;
+            const termsValid = termsCheckbox.checked;
+            
+            if (emailValid && passwordValid && confirmValid && termsValid) {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+            } else {
+                submitBtn.disabled = true;
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+            }
+        }
+
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitText = document.getElementById('submitText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const successMessage = document.getElementById('successMessage');
+            const errorMessage = document.getElementById('errorMessage');
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitText.textContent = 'Creating Account...';
+            loadingSpinner.classList.remove('hidden');
+            
+            // Simulate API call
+            setTimeout(() => {
+                const email = emailInput.value;
+                
+                // Simulate duplicate email check
+                if (email === 'existing@example.com') {
+                    // Show error
+                    errorMessage.classList.remove('hidden');
+                    document.getElementById('errorText').textContent = 'An account with this email already exists.';
+                    
+                    // Reset button
+                    submitBtn.disabled = false;
+                    submitText.textContent = 'Create Account';
+                    loadingSpinner.classList.add('hidden');
+                } else {
+                    // Show success
+                    successMessage.classList.remove('hidden');
+                    errorMessage.classList.add('hidden');
+                    
+                    // Redirect after delay
+                    setTimeout(() => {
+                        window.location.href = 'main_dashboard.html';
+                    }, 2000);
+                }
+            }, 2000);
+        });
+    </script>
+<script id="dhws-dataInjector" src="../public/dhws-data-injector.js"></script>
+</body>
+</html>
